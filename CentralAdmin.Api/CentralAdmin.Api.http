@@ -1,0 +1,11 @@
+@CentralAdmin.Api_HostAddress = https://localhost:6001
+
+GET {{CentralAdmin.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{CentralAdmin.Api_HostAddress}}/identity
+Content-Type: application/json
+Authorization: Bearer 
+
