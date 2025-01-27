@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CentralAdmin.Api", "CentralAdmin.Api\CentralAdmin.Api.csproj", "{52CD6D24-42A7-40AF-B6D4-03CD8D4C4538}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CentralAdmin.Api", "CentralAdmin.Api\CentralAdmin.Api.csproj", "{52CD6D24-42A7-40AF-B6D4-03CD8D4C4538}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CentralAdmin.Idp.Api", "CentralAdmin.Idp.Api\CentralAdmin.Idp.Api.csproj", "{333CEBFC-7E61-455E-8D2C-E83F0160318A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CentralAdmin.Idp.Api", "CentralAdmin.Idp.Api\CentralAdmin.Idp.Api.csproj", "{333CEBFC-7E61-455E-8D2C-E83F0160318A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CentralAdmin.Cli", "CentralAdmin.Cli\CentralAdmin.Cli.csproj", "{492BFCF8-D1D2-4676-880F-67B303BF1B81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CentralAdmin.Cli", "CentralAdmin.Cli\CentralAdmin.Cli.csproj", "{492BFCF8-D1D2-4676-880F-67B303BF1B81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

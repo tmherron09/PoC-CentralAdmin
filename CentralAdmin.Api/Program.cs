@@ -44,7 +44,7 @@ namespace CentralAdmin.Api
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            //builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddEndpointsApiExplorer();
             //builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
@@ -57,6 +57,7 @@ namespace CentralAdmin.Api
             //}
 
             app.UseHttpsRedirection();
+            
             //app.UseRouting();
 
             app.UseAuthentication();

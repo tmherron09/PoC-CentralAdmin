@@ -1,4 +1,5 @@
-﻿using Duende.IdentityServer.Models;
+﻿using Duende.IdentityServer;
+using Duende.IdentityServer.Models;
 
 namespace CentralAdmin.Idp.Api
 {
@@ -6,7 +7,8 @@ namespace CentralAdmin.Idp.Api
     {
         public static IEnumerable<IdentityResource> IdentityResources =>
         [
-            new IdentityResources.OpenId()
+            new IdentityResources.OpenId(),
+            new IdentityResources.Profile(),
         ];
 
         public static IEnumerable<ApiScope> ApiScopes =>
@@ -14,7 +16,7 @@ namespace CentralAdmin.Idp.Api
             new ApiScope(name: "CentralAdmin.Api", displayName: "Central Admin Api")
         ];
 
-        public static IEnumerable<Client> Clients =>
+        public static IEnumerable<Client> Clients(string idpSecret) =>
         [
             new Client
                 {
@@ -22,10 +24,29 @@ namespace CentralAdmin.Idp.Api
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets =
                     {
-                        // Insert Secret Here
+                        new Secret(idpSecret.Sha256())
                     },
                     AllowedScopes = { "CentralAdmin.Api" }
-                }
+                },
+            new Client
+        {
+            ClientId = "web",
+            ClientSecrets = { new Secret(idpSecret.Sha256())},
+
+            AllowedGrantTypes = GrantTypes.Code,
+            
+            // where to redirect to after login
+            RedirectUris = { "https://localhost:5002/signin-oidc" },
+
+            // where to redirect to after logout
+            PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
+
+            AllowedScopes =
+            {
+                IdentityServerConstants.StandardScopes.OpenId,
+                IdentityServerConstants.StandardScopes.Profile
+            }
+        }
         ];
     }
 }

@@ -1,0 +1,38 @@
+@CentralAdmin.Idp_Api_HostAddress = https://localhost:5001
+@authToken = eyJhbGciOiJSUzI1NiIsImtpZCI6IkQzNzMxMTQxMEYyRDI1QUE0Q0YwQUYxRDkzNTRBMjJFIiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIiwibmJmIjoxNzM3OTQwNjUxLCJpYXQiOjE3Mzc5NDA2NTEsImV4cCI6MTczNzk0NDI1MSwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiLCJzY29wZSI6WyJDZW50cmFsQWRtaW4uQXBpIl0sImNsaWVudF9pZCI6ImNsaWVudCIsImp0aSI6IjBDMzVGODk1OEMzMTA4NDg4ODFFM0ZDRUQyQTQ2QTM0In0.LgZQ2tvYmg5IAJo9abEhm0-MkxsVvr5X8f7CUUO6Vkyg3WUVyLO764IwU8sKMjWRN6OndmkG_aUHhOyXGQkgi0IgQSyRfwdMyyk3y5LErC_dMZkrlKLGK2smrCtH-2IfPfu56240XdRVgKRAuZJfSfhJr_tzSgiLNnj537C2C5ifT1uaju6XLWVG8NvrP26H_EPLgjhKPzgkLCsEclymxA0LJvfyUqrTDppMVp4ys4elm61H-oPpE0tzWvDaE_BGShIIs2fqCkBlI1cdLM9oM2l1JPl8nCLVT5kUN4bQNedT-ErE8gQkfLLo1xBBar1vtSVmpqaPrHivd0LKwk-hqA
+
+GET {{CentralAdmin.Idp_Api_HostAddress}}/.well-known/openid-configuration
+Accept: application/json
+
+###
+
+GET {{CentralAdmin.Idp_Api_HostAddress}}/connect/userinfo
+Accept: application/json
+
+###
+
+GET {{CentralAdmin.Idp_Api_HostAddress}}/.well-known/openid-configuration/jwks
+Accept: application/json
+
+###
+
+GET {{CentralAdmin.Idp_Api_HostAddress}}/connect/authorize
+Accept: application/json
+
+###
+
+GET {{CentralAdmin.Idp_Api_HostAddress}}/connect/endsession
+Accept: application/json
+
+###
+
+POST https://localhost:5001/connect/token
+Content-Type: application/x-www-form-urlencoded
+grant_type=client_credentials&client_id=client&client_secret=secret
+
+
+###
+
+GET https://localhost:5001/connect/checksession
+Authorization: Bearer {{authToken}}
+Accept: application/json

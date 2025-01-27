@@ -21,13 +21,14 @@ namespace CentralAdmin.Cli
                 return;
             }
 
-            var tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+            var tokenRequest = new ClientCredentialsTokenRequest
             {
                 Address = disco.TokenEndpoint,
                 ClientId = "client",
-                // ClientSecret = Add Here
+                //ClientSecret = ,
                 Scope = "CentralAdmin.Api"
-            });
+            };
+            var tokenResponse = await client.RequestClientCredentialsTokenAsync(tokenRequest);
 
             if (tokenResponse.IsError)
             {
